@@ -1,0 +1,1426 @@
+---------------
+  Practical 1
+---------------
+1.
+
+# Assigning the value X
+X = [1, 2, [3, 4, 5], [6, 7, 8], 9]
+
+element_at_2 = X[2]
+print("X[2]:", element_at_2)
+
+
+element_at_3_1 = X[3][1]
+print("X[3][1]:", element_at_3_1)
+
+output:X[2]: [3, 4, 5]
+X[3][1]: 7
+-------------------------------------
+2.
+import random
+
+random_integer = random.randint(10, 100)
+print(random_integer)
+
+output:
+50
+------------------------------------------
+3.
+# Taking input from the user for x (integer) and y (floating-point)
+x = int(input("Enter an integer (x): "))
+y = float(input("Enter a floating-point number (y): "))
+addition_result = x + y
+division_result = x / y
+modulus_result = x % y
+multiplication_result = x * y
+square_x = x ** 2
+square_sum = x**2 + y**2
+floor_division_result = x // y
+print("x + y =", addition_result)
+print("x / y =", division_result)
+print("x % y =", modulus_result)
+print("x * y =", multiplication_result)
+print("x^2 =", square_x)
+print("x^2 + y^2 =", square_sum)
+print("Floor division of x and y =", floor_division_result)
+output:
+Enter an integer (x): 2Enter a number: 4
+Sine of 4.0: -0.7568024953079282
+Cosine of 4.0: -0.6536436208636119
+Natural Logarithm of 4.0: 1.3862943611198906
+------------------------------------------------
+4.
+import math
+
+def calculate_trig_and_log(number):
+   
+    sin_value = math.sin(number)
+    cos_value = math.cos(number)
+    
+    
+    if number > 0:
+        log_value = math.log(number)
+    else:
+        log_value = "Undefined (number must be > 0)"
+    
+    return sin_value, cos_value, log_value
+
+# Example usage:
+input_number = float(input("Enter a number: ")) 
+ # You can replace this with any number
+sin_result, cos_result, log_result = calculate_trig_and_log(input_number)
+
+print(f"Sine of {input_number}: {sin_result}")
+print(f"Cosine of {input_number}: {cos_result}")
+print(f"Natural Logarithm of {input_number}: {log_result}")
+
+output:
+Enter a number: 4
+Sine of 4.0: -0.7568024953079282
+Cosine of 4.0: -0.6536436208636119
+Natural Logarithm of 4.0: 1.3862943611198906
+
+------------------------------------------------
+5.
+import math
+
+def calculate_quadratic_roots(a, b, c):
+    # Calculate the discriminant
+    discriminant = b**2 - 4*a*c
+    
+    # Check if the discriminant is positive, negative, or zero
+    if discriminant > 0:
+        # Two real and distinct roots
+        root1 = (-b + math.sqrt(discriminant)) / (2*a)
+        root2 = (-b - math.sqrt(discriminant)) / (2*a)
+        return root1, root2
+    elif discriminant == 0:
+        # One real root (repeated)
+        root1 = -b / (2*a)
+        return root1
+    else:
+        # Complex roots
+        real_part = -b / (2*a)
+        imaginary_part = math.sqrt(abs(discriminant)) / (2*a)
+        root1 = complex(real_part, imaginary_part)
+        root2 = complex(real_part, -imaginary_part)
+        return root1, root2
+a = float(input("Enter the coefficient a: "))
+b = float(input("Enter the coefficient b: "))
+c = float(input("Enter the coefficient c: "))
+roots = calculate_quadratic_roots(a, b, c)
+print("Root(s) of the quadratic equation:")
+if isinstance(roots, tuple):
+    print(f"Root 1: {roots[0]}")
+    print(f"Root 2: {roots[1]}")
+else:
+    print(f"Root: {roots}")
+output:
+Enter the coefficient a: 2
+Enter the coefficient b: 4
+Enter the coefficient c: 6
+Root(s) of the quadratic equation:
+Root 1: (-1+1.4142135623730951j)
+Root 2: (-1-1.4142135623730951j)
+-------------------------------------------------
+6.
+def calculate_quotient_and_remainder(a, b):
+    try:
+        quotient = a // b  # Attempt integer division
+        remainder = a % b   # Attempt to calculate the remainder
+        return quotient, remainder
+    except ZeroDivisionError:
+        return "Undefined (division by zero)"
+# Example usage:
+a = 0
+b = 0
+result = calculate_quotient_and_remainder(a, b)
+print("Quotient and Remainder:")
+print(result)
+output:
+Quotient and Remainder:
+Undefined (division by zero)
+----------------------------------------------------
+7.
+# Assume x and y are Boolean values (True or False)
+x = False
+y = False
+result = (x or y) and (not x or not y)
+# Print the result
+print("The value of (x ∨ y) ∧ (∼ x ∨ ∼ y) is:", result)
+output:
+The value of (x ∨ y) ∧ (∼ x ∨ ∼ y) is: False
+-----------------------------------------------------
+8.
+# Function to convert kilometers to miles
+def kilometers_to_miles(kilometers):
+    conversion_factor = 0.621371
+    miles = kilometers * conversion_factor
+    return miles
+kilometers = float(input("Enter the distance in kilometers: "))
+miles = kilometers_to_miles(kilometers)
+# Output: Display the result
+print(f"{kilometers} kilometers is equal to {miles} miles")
+#output:
+#Enter the distance in kilometers: 20
+#20.0 kilometers is equal to 12.42742 miles
+---------------------------------------------------------------
+9.
+# Input: Accept two complex numbers from the user
+real_part1 = float(input("Enter the real part of the first complex number: "))
+imag_part1 = float(input("Enter the imaginary part of the first complex number: "))
+complex_number1 = complex(real_part1, imag_part1)
+
+real_part2 = float(input("Enter the real part of the second complex number: "))
+imag_part2 = float(input("Enter the imaginary part of the second complex number: "))
+complex_number2 = complex(real_part2, imag_part2)
+
+real1 = complex_number1.real
+imag1 = complex_number1.imag
+
+real2 = complex_number2.real
+imag2 = complex_number2.imag
+
+sum_complex = complex_number1 + complex_number2
+product_complex = complex_number1 * complex_number2
+
+# Output: Display the real and imaginary parts, as well as the sum and product
+print(f"Real part of the first complex number: {real1}")
+print(f"Imaginary part of the first complex number: {imag1}")
+
+print(f"Real part of the second complex number: {real2}")
+print(f"Imaginary part of the second complex number: {imag2}")
+
+print(f"Sum of the two complex numbers: {sum_complex}")
+print(f"Product of the two complex numbers: {product_complex}")
+
+output:
+Enter the real part of the first complex number: 1
+Enter the imaginary part of the first complex number: 2
+Enter the real part of the second complex number: 3
+Enter the imaginary part of the second complex number: 4
+Real part of the first complex number: 1.0
+Imaginary part of the first complex number: 2.0
+Real part of the second complex number: 3.0
+Imaginary part of the second complex number: 4.0
+Sum of the two complex numbers: (4+6j)
+Product of the two complex numbers: (-5+10j)
+------------------------------------------------------
+10.
+import math
+
+def calculate_circle_properties(radius):
+   
+    area = math.pi * radius**2
+    
+   circumference = 2 * math.pi * radius
+    
+    return area, circumference
+
+# Example usage:
+radius = float(input("Enter the radius of the circle: "))  # You can replace this with any radius
+circle_area, circle_circumference = calculate_circle_properties(radius)
+
+print(f"Area of the circle with radius {radius}: {circle_area}")
+print(f"Circumference of the circle with radius {radius}: {circle_circumference}")
+
+output:
+Enter the radius of the circle: 5
+Area of the circle with radius 5.0: 78.53981633974483
+Circumference of the circle with radius 5.0: 31.41592653589793
+---------------------------------------------------------------------
+---------------
+practical 2
+---------------
+Q 1).
+
+def temp():
+    temp=eval(input("Tempeture : "))
+    c=(temp-32*5/9)
+    print("celceius is ",c)
+
+output:
+ 
+temp()
+Tempeture : 12
+celceius is  -5.777777777777779
+
+Q 2).
+
+import math
+def sphere():
+    radius=eval(input("Enter the Radius of sphere :"))
+    volume=4/3*math.pi*radius**2
+    surface_area=4*math.pi*radius**2
+    print("The volume of the sphere is : ",volume)
+    print("The surface area of the sphere is : ",surface_area)
+    
+output:
+
+Enter the Radius of sphere :6
+The volume of the sphere is :  150.79644737231007
+The surface area of the sphere is :  452.3893421169302
+
+Q 3).
+
+def slope():
+    x1=eval(input("Enter the x1 value :"))
+    x2=eval(input("Enter the x1 value :"))
+    y1=eval(input("Enter the x1 value :"))
+    y2=eval(input("Enter the x1 value :"))
+    s=(y2-y1) / (x2-x1)
+    printf("The slope is : ",s)
+
+output:
+
+Enter the x1 value :2
+Enter the x1 value :5
+Enter the x1 value :6
+Enter the x1 value :8
+The slope is :  0.6666666666666666
+
+Q 4).
+import math
+def det():
+    x1=eval(input("Enter the x1 co-ordinate : "))
+    y1=eval(input("Enter the y1 co-ordinate : "))
+    x2=eval(input("Enter the x2 co-ordinate : "))
+    y2=eval(input("Enter the y2 co-ordinate : "))
+    distance=math.sqrt((x2-x1)**2+(y2-y1)**2)
+    print("The distance of the two points is :",distance)
+output:
+Enter the x1 co-ordinate : 3
+Enter the y1 co-ordinate : 5
+Enter the x2 co-ordinate : 2
+Enter the y2 co-ordinate : 8
+The distance of the two points is : 3.1622776601683795
+
+Q 5).
+n = int(input("Enter the value of n: "))
+sum_of_cubes = 0
+for i in range(1, n + 1):
+    cube = i ** 3
+    sum_of_cubes += cube
+print(f"The sum of cubes of the first {n} natural numbers is: {sum_of_cubes}")
+output:
+Enter the value of n: 4
+The sum of cubes of the first 4 natural numbers is: 100
+
+Q 6).
+import math
+def calculate_triangle_area(a, b, c):
+    s = (a + b + c) / 2
+    area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+    return area
+a = float(input("Enter the length of side a: "))
+b = float(input("Enter the length of side b: "))
+c = float(input("Enter the length of side c: "))
+if a + b > c and a + c > b and b + c > a:
+        area = calculate_triangle_area(a, b, c)
+    print(f"The area of the triangle is: {area}")
+else:
+    print("These side lengths do not form a valid triangle.")
+output:
+Enter the length of side a: 12
+Enter the length of side b: 6
+Enter the length of side c: 8
+The area of the triangle is: 21.330729007701542
+-----------------------------------
+ Practical 3
+
+Q 1).
+def string():
+    str1=input("Enter the first string     : ")
+    str2=input("Enter the second string : ")
+    result_a="Welcome" + str2
+    result_b=str1.upper
+    print(result_a)
+    print(result_b)
+
+output:
+Enter the first string  : college
+Enter the second string : modern
+Welcomemodern
+
+Q 2).
+def tup():
+    tupled=input("Enter the tuple :")
+    reverse=tuple(reversed(tupled))
+    print("reversed tuple:",reverse)
+output:
+Enter the tuple :1,2,3,4,5,6
+reversed tuple: ('6', ',', '5', ',', '4', ',', '3', ',', '2', ',', '1')
+
+Q 3).
+def swap():
+    a=eval(input("Enter the first number     : "))
+    b=eval(input("Enter the second number : "))
+    print("Before swap variable values a=",a,"& b=",b,)
+    a,b=b,a
+    print("After swap variable values a=",a,"& b=",b,)
+
+output:
+Enter the first number     : 11
+Enter the second number : 22
+Before swap variable values a= 11 & b= 22
+After swap variable values a= 22 & b= 11
+
+Q 4).
+def even_odd():
+    numbers=input("Enter the seriec of numbeers : ")
+    ecnt=0
+    ocnt=0
+    for x in numbers:
+        if not int(x) % 2:
+            ecnt+=1
+        else:
+            ocnt+=1
+            print("Number of even numers ",ecnt)
+            print("number of odd number : ",ocnt)
+Q 5).
+def fun():
+    tupled=eval(input("Enter the tuple : "))
+    check=2
+    if check in tupled:
+        print("exist")
+    else:
+        print("Not ")
+        
+output:
+Enter the tuple : 1,2,3,4,5
+exist
+fun()
+Enter the tuple : 1,3,3
+Not 
+
+Q 6).
+def fun():
+    number=eval(input("Enter the number : "))
+    divisor=eval(input("Enter the divisor   : "))
+    if number%divisor==0:
+        print(number,"is divisible by ",divisor)
+    else:
+        print(number," is not divisible by",divisor)
+        
+output:
+Enter the number : 6
+Enter the divisor   : 2
+6 is divisible by  2
+fun()
+Enter the number : 2
+Enter the divisor   : 6
+2 is not divisible by 6
+
+Q 7).
+def fun():
+    for num in range(1,51):
+        if num % 3==0 and num % 5==0:
+            print("GoodMorning")
+        elif num % 3==0:
+            print("Good")
+        elif num % 5==0:
+            print("Morning")
+        else:
+            print(num)
+
+output:
+1
+2
+Good
+4
+Morning
+Good
+7
+8
+Good
+Morning
+11
+Good
+13
+14
+GoodMorning
+16
+17
+Good
+19
+Morning
+
+Q 8).
+def fun():
+    creadit=int(input("How many creadit : "))
+    if creadit<=23:
+        print("student is freshman")
+    elif 24<=creadit<=53:
+        print("student are sophomore")
+    elif 54<=creadit<=83:
+        print("Student are juniors")
+    elif creadit>=84:
+        print("Student senior")
+        
+output:
+fun()
+How many creadit : 40
+student are sophomore
+fun()
+How many creadit : 90
+Student senior
+
+Q 9).
+import math
+def fun():
+    string=str(input("Enterr the string : "))
+    alphcnt=0
+    digcnt=0
+    for char in string:
+        if char.isalpha():
+            alphcnt+=1
+        elif char.isdigit():
+            digcnt+=1
+    print("Alphabates = ",alphcnt)
+    print("Digits = ",digcnt)
+
+output:
+Enterr the string : modern
+Alphabates =  6
+Digits =  0
+fun()
+Enterr the string : modern college pune
+Alphabates =  17
+Digits =  0
+
+Q 10).
+def fun():
+    alph=input("Enter the alphabate : ").lower()
+    if alph.isalpha() and len(alph)==1:
+        vowel=('a','e','i','o','u')
+        if alph in vowel:
+            print("Yes is vowel")
+        else:
+            print("is Not a vowel")
+    else:
+        print("Please enter single alphabate !!!")
+    
+output:
+Enter the alphabate : s
+is Not a vowel
+fun()
+Enter the alphabate : a
+Yes is vowel
+-------------
+ Practical 4
+
+1). Print Fibonacci numbers less than 1000
+def generate_fibonacci(limit):
+    fibonacci_numbers = [0, 1]
+    while True:
+        next_number = fibonacci_numbers[-1] + fibonacci_numbers[-2]
+        if next_number >= limit:
+            break
+        fibonacci_numbers.append(next_number)
+    return fibonacci_numbers
+limit = 1000
+fibonacci_sequence = generate_fibonacci(limit)
+print("Fibonacci numbers less than 1000:")
+for num in fibonacci_sequence:
+    print(num)
+======================================================
+OUTPUT:
+Fibonacci numbers less than 1000:
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+==========================================================
+2.) Write a function that prints first n prime numbers.
+def is_prime(num):
+    if num <= 1:
+        return False
+    elif num == 2:
+        return True
+    elif num % 2 == 0:
+        return False
+    else:
+        for i in range(3, int(num**0.5) + 1, 2):
+            if num % i == 0:
+                return False
+        return True
+def print_first_n_primes(n):
+    count = 0
+    num = 2
+    while count < n:
+        if is_prime(num):
+            print(num, end=" ")
+            count += 1
+        num += 1
+n = int(input("Enter the value of n: "))
+print(f"First {n} prime numbers:")
+print_first_n_primes(n)
+
+OUTPUT:
+Enter the value of n: 50
+First 50 prime numbers:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 
+127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 211 223 227 229 
+
+3).Print all positive divisors of given number n.
+def find_positive_divisors(n):
+    divisors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+n = int(input("Enter a number: "))
+if n <= 0:
+    print("Please enter a positive integer.")
+else:
+    divisors = find_positive_divisors(n)
+    print(f"Positive divisors of {n}: {divisors}")
+
+OUTPUT:
+Enter a number: 40
+Positive divisors of 40: [1, 2, 4, 5, 8, 10, 20, 40]
+
+4.) Define Euler’s phi function in python.
+
+def euler_phi(n):
+    if n <= 0:
+        return 0  
+    result = n  
+    p = 2
+    while p * p <= n:
+        if n % p == 0:
+            while n % p == 0:
+                n //= p
+            result -= result // p
+        p += 1
+    if n > 1:
+        result -= result // n
+    return result
+n = int(input("Enter a positive integer n: "))
+if n <= 0:
+    print("Please enter a positive integer.")
+else:
+    phi_value = euler_phi(n)
+    print(f"Euler's phi({n}) = {phi_value}")
+
+OUTPUT:
+Enter a positive integer n: 20
+Euler's phi(20) = 8
+
+5.) Write a Python program that accepts a word from the user and reverse it.
+def reverse_word(word):
+    return word[::-1]
+user_input = input("Enter a word: ")
+reversed_word = reverse_word(user_input)
+print(f"Reversed word: {reversed_word}")
+
+OUTPUT:
+Enter a word: Hello
+Reversed word: olleH
+
+6.) Write a Python program to check a triangle is equilateral, isosceles or scalene
+
+def triangle_type(a, b, c):
+    if a == b == c:
+        return "Equilateral"
+    elif a == b or b == c or a == c:
+        return "Isosceles"
+    else:
+        return "Scalene"
+a = float(input("Enter the length of side a: "))
+b = float(input("Enter the length of side b: "))
+c = float(input("Enter the length of side c: "))
+if a + b > c and b + c > a and a + c > b:
+    triangle = triangle_type(a, b, c)
+    print(f"The triangle is {triangle}.")
+else:
+    print("These side lengths cannot form a valid triangle.")
+
+OUTPUT:
+Enter the length of side a: 4
+Enter the length of side b: 6
+Enter the length of side c: 2
+These side lengths cannot form a valid triangle.
+
+Enter the length of side a: 4
+Enter the length of side b: 4
+Enter the length of side c: 4
+The triangle is Equilateral.
+
+7).Write a  funtion in Python program for given a number count the total number
+ of digits in a number
+def count_digits(number):
+    num_str = str(number)
+    return len(num_str)
+number = int(input("Enter a number: "))
+digit_count = count_digits(number)
+print(f"Total number of digits in {number} is {digit_count}.")
+
+OUTPUT:
+Enter a number: 20
+Total number of digits in 20 is 2.
+=======================================================
+Practical 5
+
+Q1).
+import numpy as np
+identity_matrix_4x4 = np.identity(4)
+print("Identity matrix of order 4:")
+print(identity_matrix_4x4)
+
+zero_matrix_6x4 = np.zeros((6, 4))
+print("\nZero matrix of order 6 × 4:")
+print(zero_matrix_6x4)
+
+ones_matrix_4x5 = np.ones((4, 5))
+print("\nOnes matrix of order 4 × 5:")
+print(ones_matrix_4x5)
+
+diagonal_entries = [1, 2, 3]
+diagonal_matrix = np.diag(diagonal_entries)
+print("\nDiagonal matrix with diagonal entries 1, 2, 3:")
+print(diagonal_matrix)
+
+OUTPUT:
+a).
+Identity matrix of order 4:
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+
+b).
+Zero matrix of order 6 × 4:
+[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+
+c).
+Ones matrix of order 4 × 5:
+[[1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]]
+
+
+d).
+Diagonal matrix with diagonal entries 1, 2, 3:
+[[1 0 0]
+ [0 2 0]
+ [0 0 3]]
+
+2.) For the following matrices
+A =([[4, 2, 4],
+    [4, 1, 1],
+    [4, -2, 4]])
+
+B =([[5, 2, 3],
+    [3, 7, 3],
+    [-3, 1, -1]])
+
+a) A + B
+b) A − 2B
+c) A−1
+d) BA
+e) B−1AB
+f) A^3
+
+OUTPUT:
+a) A + B
+[[ 9  4  7]
+ [ 7  8  4]
+ [ 1 -1  3]]
+
+b) A - 2B
+[[ -6  -2  -2]
+ [ -2 -13  -5]
+ [ 10  -4   6]]
+
+c) A^-1
+[[-0.125       0.33333333  0.04166667]
+ [ 0.25       -0.         -0.25      ]
+ [ 0.25       -0.33333333  0.08333333]]
+
+d) BA
+[[ 40   6  34]
+ [ 52   7  31]
+ [-12  -3 -15]]
+
+e) B^-1AB
+[[ -7.  -15.  -10. ]
+ [ -1.6  -8.   -4. ]
+ [ 17.4  39.   24. ]]
+
+f) A^3
+[[304  14 298]
+ [208  13 187]
+ [208 -14 214]]
+
+3).
+A =([[-5, 2, 3, 4],
+     [1, -1, 9, 0],
+     [10, 13, -11, 6]])
+
+result_a = np.delete(A, 2, axis=1)
+new_row = np.array([7, -8, -2, 0])
+result_b = np.insert(A, 1, new_row, axis=0)
+result_c = np.delete(A, 1, axis=0)
+print("a) Delete 3rd column:")
+print(result_a)
+print("\nb) Add Row [7, -8, -2] in between row 1 and row 2:")
+print(result_b)
+print("\nc) Delete Row:")
+print(result_c)
+
+OUTPUT:
+a) Delete 3rd column:
+[[-5  2  4]
+ [ 1 -1  0]
+ [10 13  6]]
+
+b) Add Row [7, -8, -2] in between row 1 and row 2:
+[[ -5   2   3   4]
+ [  7  -8  -2   0]
+ [  1  -1   9   0]
+ [ 10  13 -11   6]]
+
+c) Delete Row:
+[[ -5   2   3   4]
+ [ 10  13 -11   6]]
+
+4). For the matrix
+A =([[1, 2, 1, 3],
+    [2, 1, -4, -5],
+    [7, 8, -5, -1],
+    [10, 14, -2, 8]])
+
+to find
+a) Reduce the matrix to row echelon form
+b) Find its rank
+c) Find nullspace
+d) Find columnspace
+e) Find its transpose
+f) Find its inverse if exists
+import numpy as np
+reduced_row_echelon_form, _ = np.linalg.qr(A)
+rank = np.linalg.matrix_rank(A)
+U, S, VT = np.linalg.svd(A)
+nullspace = VT.T[:, rank:]
+columnspace = np.linalg.matrix_power(A, 1)
+transpose_A = A.T
+try:
+    inverse_A = np.linalg.inv(A)
+except np.linalg.LinAlgError:
+    inverse_A = "Inverse does not exist"
+print("a) Reduce the matrix to row echelon form:")
+print(reduced_row_echelon_form)
+print("\nb) Find its rank:")
+print(rank)
+print("\nc) Find nullspace:")
+print(nullspace)
+print("\nd) Find columnspace:")
+print(columnspace)
+print("\ne) Find its transpose:")
+print(transpose_A)
+print("\nf) Find its inverse if exists:")
+print(inverse_A)
+
+OUTPUT:
+a) Reduce the matrix to row echelon form:
+[[-0.0805823   0.30578831  0.94001716 -0.12793646]
+ [-0.16116459 -0.69651783  0.29879728  0.6321464 ]
+ [-0.56407607 -0.47567071  0.01454177 -0.67479189]
+ [-0.80582296  0.44169423 -0.16394041  0.35871869]]
+
+b) Find its rank:
+  2
+c) Find nullspace:
+[[ 0.69325266 -0.4030031 ]
+ [-0.66021033 -0.08445755]
+ [-0.13670785 -0.79014031]
+ [ 0.25462528  0.4540195 ]]
+
+d) Find columnspace:
+[[ 1  2  1  3]
+ [ 2  1 -4 -5]
+ [ 7  8 -5 -1]
+ [10 14 -2  8]]
+
+e) Find its transpose:
+[[ 1  2  7 10]
+ [ 2  1  8 14]
+ [ 1 -4 -5 -2]
+ [ 3 -5 -1  8]]
+
+f) Find its inverse if exists:
+Inverse does not exist
+----------------
+  Practical 6
+----------------
+import numpy as np
+A = np.array([[6, 18, 3, -7],
+              [2, 12, 1, 8],
+              [4, 15, 3, 9],
+              [-1, 3, 5, 10]])
+#A).
+det_A = np.linalg.det(A)
+print("Determinant of A:", det_A)
+B = np.array([[2**0.5, 0, 0, 0],
+              [-8, 2**0.5, -0, 0],
+              [7,0,-1,0],
+              [9,5,6,1]])
+#B).
+det_B = np.linalg.det(B)
+print("Determinant of B:", det_B)
+#c).
+A_plus_B = A + B
+det_A_plus_B = np.linalg.det(A_plus_B)
+print("Determinant of A + B:", det_A_plus_B)
+
+#D).
+A_squared = np.dot(A, A)
+B_squared = np.dot(B, B)
+det_A_squared_minus_B_squared = np.linalg.det(A_squared - B_squared)
+print("Determinant of A^2 - B^2:", det_A_squared_minus_B_squared)
+#E).
+result = -2*A + 3*B
+det_result = np.linalg.det(result)
+print("Determinant of -2A + 3B:", det_result)
+
+#output:
+#Determinant of A: -1736.9999999999995
+#Determinant of B: -1.9999999999999984
+#Determinant of A + B: -42819.21565441419
+#Determinant of A^2 - B^2: -17501696.117008757
+#Determinant of -2A + 3B: -436270.8242430423
+
+Practical 7
+------------
+1)
+import sympy as sp
+x, y, z, w = sp.symbols('x y z w')
+augmented_matrix = sp.Matrix([
+    [1, 1, 1, 1, 3],
+    [3, 2, 1, 0, -5],
+    [27, 9, 3, 1, -7],
+    [27, 6, 1, 0, -1]
+])
+reduced_row_echelon_form = augmented_matrix.rref()[0]
+print("Row Echelon Form:")
+sp.pprint(reduced_row_echelon_form)
+reduced_row_echelon_form = reduced_row_echelon_form.rref()[0]
+print("\nReduced Row Echelon Form (Solution):")
+sp.pprint(reduced_row_echelon_form)
+solution = sp.solve(reduced_row_echelon_form[:, -1], [x, y, z, w])
+print("\nSolution:")
+sp.pprint(solution)
+
+opt-
+Row Echelon Form:
+⎡1  0  0  0  1 ⎤
+⎢              ⎥
+⎢0  1  0  0  -5⎥
+⎢              ⎥
+⎢0  0  1  0  2 ⎥
+⎢              ⎥
+⎣0  0  0  1  5 ⎦
+
+Reduced Row Echelon Form (Solution):
+⎡1  0  0  0  1 ⎤
+⎢              ⎥
+⎢0  1  0  0  -5⎥
+⎢              ⎥
+⎢0  0  1  0  2 ⎥
+⎢              ⎥
+⎣0  0  0  1  5 ⎦
+
+Solution:
+[]
+=====================================================
+B)
+import sympy as sp
+
+x1, x2, x3, x4, x5 = sp.symbols('x1 x2 x3 x4 x5')
+
+augmented_matrix = sp.Matrix([
+    [1, 2, -3, -2, 4, 12],
+    [2, 5, -8, -1, 6, 4],
+    [1, 4, -7, 5, 2, 8]
+])
+
+reduced_row_echelon_form = augmented_matrix.rref()[0]
+print("Row Echelon Form:")
+sp.pprint(reduced_row_echelon_form)
+reduced_row_echelon_form = reduced_row_echelon_form.rref()[0]
+print("\nReduced Row Echelon Form (Solution):")
+sp.pprint(reduced_row_echelon_form)
+solution = sp.solve(reduced_row_echelon_form[:, -1], [x1, x2, x3, x4, x5])
+print("\nSolution:")
+sp.pprint(solution)
+-------------------------------------------------------
+opt-
+Row Echelon Form:
+⎡1  0  1   0  24  340 ⎤
+⎢                     ⎥
+⎢0  1  -2  0  -8  -128⎥
+⎢                     ⎥
+⎣0  0  0   1  2    36 ⎦
+
+Reduced Row Echelon Form (Solution):
+⎡1  0  1   0  24  340 ⎤
+⎢                     ⎥
+⎢0  1  -2  0  -8  -128⎥
+⎢                     ⎥
+⎣0  0  0   1  2    36 ⎦
+
+Solution:
+[]
+=========================================================
+C)
+import sympy as sp
+u, v, w, x = sp.symbols('u v w x')
+augmented_matrix = sp.Matrix([
+    [0, 1, 3, -2, 0],
+    [2, 1, -4, 3, 0],
+    [2, 3, 2, -1, 0],
+    [-4, -3, 5, -4, 0]
+])
+reduced_row_echelon_form = augmented_matrix.rref()[0]
+print("Row Echelon Form:")
+sp.pprint(reduced_row_echelon_form)
+reduced_row_echelon_form = reduced_row_echelon_form.rref()[0]
+print("\nReduced Row Echelon Form (Solution):")
+sp.pprint(reduced_row_echelon_form)
+solution = sp.solve(reduced_row_echelon_form[:, -1], [u, v, w, x])
+print("\nSolution:")
+sp.pprint(solution)
+----------------------------------------------------------
+opt-
+Row Echelon Form:
+⎡1  0  -7/2  5/2  0⎤
+⎢                  ⎥
+⎢0  1   3    -2   0⎥
+⎢                  ⎥
+⎢0  0   0     0   0⎥
+⎢                  ⎥
+⎣0  0   0     0   0⎦
+
+Reduced Row Echelon Form (Solution):
+⎡1  0  -7/2  5/2  0⎤
+⎢                  ⎥
+⎢0  1   3    -2   0⎥
+⎢                  ⎥
+⎢0  0   0     0   0⎥
+⎢                  ⎥
+⎣0  0   0     0   0⎦
+
+Solution:
+[]
+============================================
+2)
+a)
+import sympy as sp
+x1, x2, x3 = sp.symbols('x1 x2 x3')
+A1 = sp.Matrix([[2, -2, -4],
+               [0, -2, -4],
+               [-1, 5, 2]])
+B1 = sp.Matrix([-2, 2, 6])
+L1, U1, _ = A1.LUdecomposition()
+Y1 = L1.solve(B1)
+X1 = U1.solve(Y1)
+print("Solution for A1:")
+sp.pprint(X1)
+-------------------------------------------------
+opt-
+Solution for A1:
+⎡ -2 ⎤
+⎢    ⎥
+⎢5/4 ⎥
+⎢    ⎥
+⎣-9/8⎦
+=============================================================
+b)
+import numpy as np
+A2 = np.array([[2, -4, 8],
+               [-6, 4, -5],
+               [-5, 0, -1],
+               [3, -8, 7]])
+B2 = np.array([1, -2, 8, 1])
+rank_A2 = np.linalg.matrix_rank(A2)
+augmented_matrix = np.column_stack((A2, B2))
+rank_augmented = np.linalg.matrix_rank(augmented_matrix)
+if rank_A2 != rank_augmented:
+    print("The system is inconsistent and has no unique solution.")
+else:
+    solution = np.linalg.lstsq(A2, B2, rcond=None)[0]
+    print("Solution:")
+    print(solution)
+opt-
+The system is inconsistent and has no unique solution.
+=================================
+
+ Practical 8
+
+import numpy as np
+#1.
+A1 = np.array([[1, 2, 3],
+               [0, 1, 0],
+               [2, 1, 2]])
+eigenvalues1, eigenvectors1 = np.linalg.eig(A1)
+print("Eigenvalues of A1:", eigenvalues1)
+print("Eigenvectors of A1:")
+print(eigenvectors1)
+----------------------------------------------------------
+A2 = np.array([[2, 1, 1],
+               [2, 3, 4],
+               [-1, -1, -2]])
+eigenvalues2, eigenvectors2 = np.linalg.eig(A2)
+print("Eigenvalues of A2:", eigenvalues2)
+print("Eigenvectors of A2:")
+print(eigenvectors2)
+-------------------------------------------------------
+#3.
+A3 = np.array([[0, 0, 0],
+               [0, 0, 0],
+               [3, 0, 1]])
+eigenvalues3, eigenvectors3 = np.linalg.eig(A3)
+print("Eigenvalues of A3:", eigenvalues3)
+print("Eigenvectors of A3:")
+print(eigenvectors3)
+----------------------------------------------------
+#4.
+A4 = np.array([[0, 1, 0],
+               [0, 0, 1],
+               [4, -17, 8]])
+eigenvalues4, eigenvectors4 = np.linalg.eig(A4)
+print("Eigenvalues of A4:", eigenvalues4)
+print("Eigenvectors of A4:")
+print(eigenvectors4)
+--------------------------------------------------------
+#output:
+#1).
+#Eigenvalues of A1: [-1.  4.  1.]
+#Eigenvectors of A1:
+#[[-0.83205029 -0.70710678 -0.13736056]
+#[ 0.          0.          0.82416338]
+#[ 0.5547002  -0.70710678 -0.54944226]]
+#2).
+#Eigenvalues of A2: [ 3.  1. -1.]
+#Eigenvectors of A2:
+#[[ 5.34522484e-01  7.07106781e-01  1.81298661e-16]
+#[ 8.01783726e-01 -7.07106781e-01 -7.07106781e-01]
+#[-2.67261242e-01  1.22649454e-16  7.07106781e-01]]
+#3).
+#Eigenvalues of A3: [1. 0. 0.]
+#Eigenvectors of A3:
+#[[ 0.          0.31622777  0.        ]
+#[ 0.          0.          1.        ]
+#[ 1.         -0.9486833   0.        ]]
+#Eigenvalues of A4: [0.26794919 3.73205081 4.]
+#4)A1.
+#Eigenvectors of A4:
+#[[-0.96361137 -0.06918418 -0.06052275]
+#[-0.25819889 -0.25819889 -0.24209101]
+# [-0.06918418 -0.96361137 -0.96836405]]
+=========================================================
+------------
+Practical 9
+------------
+1).
+A1 =([[1, 2, 3],
+     [2, 1, 3],
+     [3, 3, 6]])
+
+-->Matrix A1:
+P:
+[[-4.08248290e-01 -7.07106781e-01 -5.77350269e-01]
+ [-4.08248290e-01  7.07106781e-01 -5.77350269e-01]
+ [-8.16496581e-01  4.65265489e-17  5.77350269e-01]]
+D:
+[[ 9.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00 -1.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  2.80739441e-18]]
+=============================================================
+
+2).
+A2 =([[-1, 4, -2],
+      [-3, 4, 0],
+      [-3, 1, 3]])
+-->Matrix A2:
+P:
+[[-0.57735027  0.42640143  0.19611614]
+ [-0.57735027  0.63960215  0.58834841]
+ [-0.57735027  0.63960215  0.78446454]]
+D:
+[[1. 0. 0.]
+ [0. 2. 0.]
+ [0. 0. 3.]]
+====================================
+Practical 10
+-------------
+#Q1.
+#a).
+import math
+def f(x):
+    return x * math.exp(x) - math.cos(x)
+a = 0
+b = 1
+tolerance = 1e-6
+max_iterations = 100
+iteration = 0
+approx_root = 0
+while iteration < max_iterations:
+    approx_root = (a * f(b) - b * f(a)) / (f(b) - f(a))    
+    if abs(f(approx_root)) < tolerance:
+        break    
+    if f(approx_root) * f(a) < 0:
+        b = approx_root
+    else:
+        a = approx_root   
+    iteration += 1
+print("Approximate root:", approx_root)
+#output:Approximate root: 0.5177572559945329
+--------------------------------
+
+#b).
+import math
+def f(x):
+    return math.tan(x) - 2 * x
+a = 1.1
+b = 1.2
+tolerance = 1e-6
+max_iterations = 100
+iteration = 0
+approx_root = 0
+while iteration < max_iterations:
+    approx_root = (a * f(b) - b * f(a)) / (f(b) - f(a))
+    if abs(f(approx_root)) < tolerance:
+        break
+    if f(approx_root) * f(a) < 0:
+        b = approx_root
+    else:
+        a = approx_root
+    iteration += 1
+print("Approximate root:", approx_root)
+#output:Approximate root: 1.165561040419792
+-------------------------------------
+
+#Q2.
+#a).
+import math
+def f(x):
+    return x * math.log10(x) - 12.34
+def f_prime(x):
+    return math.log10(x) + 1
+x0 = 10
+tolerance = 1e-6
+max_iterations = 100
+iteration = 0
+x = x0
+while iteration < max_iterations:
+    x_next = x - f(x) / f_prime(x)   
+    if abs(x_next - x) < tolerance:
+        break
+    x = x_next
+    iteration += 1
+print("Approximate root:", x)
+#output:Approximate root: 11.594852599967805
+
+#b).
+import math
+def f(x):
+    return x - math.cos(x)
+def f_prime(x):
+    return 1 + math.sin(x)
+x0 = 0.5
+tolerance = 1e-6
+max_iterations = 100
+iteration = 0
+x = x0
+while iteration < max_iterations:
+    x_next = x - f(x) / f_prime(x)
+    if abs(x_next - x) < tolerance:
+        break
+    x = x_next
+    iteration += 1
+print("Approximate root:", x)
+#output:Approximate root: 0.7390851339208068
+---------------------------------------------
+#Q3.
+
+def f(x):
+    return x**2 - 5
+def f_prime(x):
+    return 2 * x
+x0 = 2.0 
+tolerance = 1e-10
+max_iterations = 100
+iteration = 0
+x = x0
+while iteration < max_iterations:
+    x_next = x - f(x) / f_prime(x)
+    if abs(x_next - x) < tolerance:
+        break
+    x = x_next
+    iteration += 1
+print("Approximate value of √5:", format(x, '.10f'))
+#output:Approximate value of √5: 2.2360679775
+======================================
+
+ Practical 11
+
+import sympy as sp
+x = sp.Symbol('x')
+f = x**2  
+a = 0  
+b = 1  
+n = 4
+h = (b - a) / n
+result = 0
+for i in range(n):
+    xi = a + i * h
+    xi1 = a + (i + 1) * h
+    result += (f.subs(x, xi) + f.subs(x, xi1)) * h / 2
+print(f'Trapezoidal approximation: {result}')
+
+opt-
+Trapezoidal approximation: 0.343750000000000
+
+2)
+def f(x):
+    return x**2  
+b = 1  
+n = 4
+h = (b - a) / n
+result = 0
+for i in range(n):
+    xi = a + i * h
+    xi1 = a + (i + 1) * h
+    result += (f(xi) + f(xi1)) * h / 2
+print(f'Trapezoidal approximation: {result}')
+
+opt-
+Trapezoidal approximation: 0.34375
+
+3)
+def f(x):
+    return x**2  
+a = 0  
+b = 1  
+h = 0.5
+n = int((b - a) / h)
+result = 0
+for i in range(1, n):
+    xi = a + i * h
+    result += f(xi)
+result += (f(a) + f(b)) / 2  # Add the endpoints
+result *= h  # Multiply by the step size
+print(f'Trapezoidal approximation: {result}')
+
+opt-
+Trapezoidal approximation: 0.375
+=================================
+
+Practical-12
+
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return (np.sin(np.pi * x))**2
+a = 0
+b = 1
+n = 6
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simps(y_values, x_values)
+print("Result:", result)
+
+#output:Result: 0.5
+
+#2).
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return np.sqrt(4 + x**3)
+a = 0
+b = 3
+n = 6
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simps(y_values, x_values)
+print("Result:", result)
+
+#output:Result: 9.279161265101772
+
+#3).
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return x * np.exp(x)
+a = 0
+b = 1
+n = 8
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simps(y_values, x_values)
+print("Result:", result)
+#output:Result: 1.000010650139507
+
+#4).
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return 1 / (1 + x**3)
+a = 0
+b = 3
+n = 6
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simpson(y_values, x_values, 3)
+print("Result:", result)
+#output:Result: 1.1613965469228626
+
+#5).
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return 1 / (1 + x**3)
+a = 0
+b = 3
+n = 6
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simpson(y_values, x_values, 3)
+print("Result:", result)
+#output:Result: 1.1613965469228626
+
+#6).
+import scipy.integrate as spi
+import numpy as np
+def f(x):
+    return x * np.exp(x**2)
+a = 0
+b = 2
+n = 9
+x_values = np.linspace(a, b, n+1)
+y_values = f(x_values)
+result = spi.simpson(y_values, x_values, 3)
+print("Result:", result)
+#output:Result: 27.33321659150767
+=============================================================================
