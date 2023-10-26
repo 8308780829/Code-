@@ -1,0 +1,83 @@
+import math
+def falseposition(f,x0,x1,e):
+    x0=float(x0)
+    x1=float(x1)
+    e=float(e)
+    if  f(x0)*f(x1) >0.0:
+        print("Given guess values do not bracket the root")
+        print("Try again with different guess values")
+    else:
+       step=1
+       condition =True
+       while condition:
+           x2=x0-(x1-x0)*f(x0)/(f(x1)-f(x0))
+           print("iteration %d, x2=%0.6f and f(x2)=%0.6f"% (step,x2,f(x2)))
+           if f(x0)*f(x2) < 0:
+                 x1=x2
+           else:
+                 x0=x2
+                 step = step + 1
+                 condition=abs(f(x2)) > e
+                 print("\nRequired root is :%0.8f" %x2)
+def f(x):
+    return math.tan(x)-2*x
+------------------------------------------------------------
+import math
+def newton(f,g,x0,e,N):
+    x0=float(x0)
+    e=float(e)
+    N=int(N)
+    step=1
+    flag=1
+    condition=True
+    while condition:
+        if g(x0)==0.0:
+            print("Divide by Zero error ")
+            break
+        x1=x0-f(x0)/g(x0)
+        print("Iteration-%d, x1=%0.6f and f(x1)=%0.6f" %(step,x1,f(x1)))
+        x0=x1
+        step=step+1
+        if step > N:
+            flag=0
+            break
+        condition=abs(f(x1)) > e
+        if flag==1:
+            print("\nReruired root is :%0.8f" % x1)
+        else:
+            print("\nNot convergent")
+def f(x):
+    return x*math.log10(x)-12.34
+def g(x):
+    return  math.log10(x)+1
+---------------------------------------------------------
+import numpy
+def simpson13(f,a,b,n):
+    h=float(b-a)/n
+    result=f(a)+f(b)
+    for i in range (1,n):
+        k=a+i*h
+        if i%2==0:
+            result=result+2*f(k)
+        else:
+            result=result+4*f(k)
+    result*=h/8
+    return result
+def f(x):
+    return  numpy.sqrt(4+x**3)
+------------------------------------------------------------
+from math import*
+def trapezoidal(f,a,b,n):
+    h=float(b-a)/n
+    result=0.5*f(a) + 0.5*f(b)
+    for i in range(1,n):
+        result+=f(a+i*h)
+    result*=h
+    return result
+def f(x):
+    return x**2
+  ----------------------------------------------------------
+
+
+
+
